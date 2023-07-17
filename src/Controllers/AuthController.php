@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use App\Exceptions\AccessDeniedException;
 use App\FlashSession;
 use Models\UserModel;
 
@@ -89,9 +90,18 @@ class AuthController {
     }
 
     static function delete() {
+        if (!is_connected()) {
+            error403();
+        }
+
+        UserModel::delete(user('id'));
     }
 
     static function displayProfile() {
         include view('auth/profile');
+    }
+
+    static function handleUpdateProfile() {
+        dd($_POST);
     }
 }

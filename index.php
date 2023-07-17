@@ -81,11 +81,11 @@ try {
             break;
             
         case '/me/update':
-            AuthController::displayProfile();
+            AuthController::handleUpdateProfile();
             break;
 
         case '/me/delete':
-            AuthController::displayProfile();
+            AuthController::delete();
             break;
 
         case '/error/403':  // Pour tester la page 403
