@@ -20,7 +20,7 @@ class Config {
      * - http://localhost:8000
      * - http://localhost/<DIRECTORY>
      */
-    const BASE_URL = 'http://localhost:8000'; 
+    const BASE_URL = 'http://localhost:8000';
 
     /**
      * The directory where to store logs
@@ -31,4 +31,18 @@ class Config {
      * The directory where views are stored
      */
     const VIEWS_DIR = __DIR__ . '/../views';
+
+    /**
+     * The mail from and to which write to website
+     */
+    const MAIL_CONTACT = 'admin_monsite@yopmail.fr';
+
+    /**
+     * All the information about SMTP servers
+     */
+    const
+        SMTP_HOST = '',
+        SMTP_PORT = '',
+        SMTP_USER = '',
+        SMTP_PSW = '';
 }
