@@ -19,4 +19,27 @@ class UserModel extends BaseModel {
 
         return static::getByEmail($email);
     }
+
+    static function update($id, string $email, string $password, string $avatar, string $telephone, string $prenom, string $nom): object {
+        static::query(
+            'UPDATE utilisateur 
+            SET email = :email,password = :password,image = :avatar,telephone = :telephone,prenom = :prenom,nom = :nom
+            WHERE id = :id',
+            [
+                'email' => $email,
+                'password' => $password,
+                'avatar' => $avatar,
+                'telephone' => $telephone,
+                'prenom' => $prenom,
+                'nom' => $nom,
+                'id' => $id
+            ]
+        );
+
+        return static::getByEmail($email);
+    }
+
+    static function delete($id) {
+        static::query('DELETE FROM utilisateur WHERE id = ?', [$id]);
+    }
 }

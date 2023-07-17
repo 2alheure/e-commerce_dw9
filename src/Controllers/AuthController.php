@@ -92,6 +92,6 @@ class AuthController {
     }
 
     static function displayProfile() {
-        dd(user());
+        include view('auth/profile');
     }
 }

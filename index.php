@@ -76,7 +76,15 @@ try {
             AuthController::handleRegisterForm();
             break;
 
-        case '/profile':
+        case '/me':
+            AuthController::displayProfile();
+            break;
+            
+        case '/me/update':
+            AuthController::displayProfile();
+            break;
+
+        case '/me/delete':
             AuthController::displayProfile();
             break;
 

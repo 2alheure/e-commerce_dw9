@@ -18,7 +18,7 @@
         </label>
     </div>
 
-    <input type="submit" value="Se connecter" class="cursor-pointer rounded bg-gray-800 text-white hover:bg-gray-600 w-1/2 p-2 mx-auto">
+    <input type="submit" value="Créer un compte" class="cursor-pointer rounded bg-gray-800 text-white hover:bg-gray-600 w-1/2 p-2 mx-auto">
 
     <p>
         Vous avez déjà compte ?
