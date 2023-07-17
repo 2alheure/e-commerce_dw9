@@ -27,9 +27,10 @@
         </div>
     </div>
 
-
-
-    <input type="submit" value="Modifier mon profil" class="cursor-pointer rounded bg-gray-800 text-white hover:bg-gray-600 w-1/2 p-2 mx-auto">
+    <div class="flex gap-8 text-center mt-8">
+        <a href="<?= url('/me/delete') ?>"  class="cursor-pointer rounded bg-red-600 text-white hover:bg-red-500 w-1/2 p-2 mx-auto" onclick="return confirm('Êtes-vous sûr ? Cette action est irréversible.')">Supprimer</a>
+        <input type="submit" value="Modifier mon profil" class="cursor-pointer rounded bg-gray-800 text-white hover:bg-gray-600 w-1/2 p-2 mx-auto">
+    </div>
 </form>
 
 <?php include view('parts/footer'); ?>

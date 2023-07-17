@@ -95,6 +95,10 @@ class AuthController {
         }
 
         UserModel::delete(user('id'));
+
+        add_flash('success', 'Votre compte est à présent supprimé.');
+
+        redirect('/logout');
     }
 
     static function displayProfile() {
