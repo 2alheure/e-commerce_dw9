@@ -35,6 +35,18 @@ try {
             StaticController::displayHomepage();
             break;
 
+        case '/terms/cgu':
+            StaticController::displayCGU();
+            break;
+
+        case '/terms/cgv':
+            StaticController::displayCGV();
+            break;
+
+        case '/terms/confidentials':
+            StaticController::displayConfidentials();
+            break;
+
         case '/contact':
             ContactController::displayContact();
             break;
