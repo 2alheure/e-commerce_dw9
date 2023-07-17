@@ -22,6 +22,7 @@ use App\Exceptions\NotFoundException;
 use App\Exceptions\AccessDeniedException;
 
 require_once __DIR__ . '/src/helpers/main.php';
+require_once __DIR__ . '/src/helpers/validation.php';
 require_once __DIR__ . '/src/helpers/session_flash.php';
 
 $route = $_SERVER['PATH_INFO'] ?? '/home';
@@ -65,6 +66,14 @@ try {
 
         case '/logout':
             AuthController::logout();
+            break;
+
+        case '/register':
+            AuthController::displayRegisterForm();
+            break;
+
+        case '/register-handler':
+            AuthController::handleRegisterForm();
             break;
 
         case '/profile':

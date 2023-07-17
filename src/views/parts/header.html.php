@@ -36,6 +36,7 @@
                 </a>
             <?php else : ?>
                 <a href="<?= url('/login') ?>" class="hover:underline">Se connecter</a>
+                <a href="<?= url('/register') ?>" class="hover:underline">Créer un compte</a>
             <?php endif; ?>
 
 

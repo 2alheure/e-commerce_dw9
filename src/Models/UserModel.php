@@ -4,12 +4,19 @@ namespace Models;
 
 class UserModel extends BaseModel {
     static function getByEmail(string $email) {
-        $db = static::connectToDB();
-
-        // We use prepared statements to avoir SQL injections
-        $stmt = $db->prepare('SELECT * FROM utilisateur WHERE email = ?');
-        $stmt->execute([$email]);
-
+        $stmt = static::query('SELECT * FROM utilisateur WHERE email = ?', [$email]);
         return $stmt->fetch();
+    }
+
+    static function add(string $email, string $password): object {
+        static::query(
+            'INSERT INTO utilisateur (email, password, role_id) VALUE (:email, :psw, 1)',
+            [
+                'psw' => $password,
+                'email' => $email,
+            ]
+        );
+
+        return static::getByEmail($email);
     }
 }

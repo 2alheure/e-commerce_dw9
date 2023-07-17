@@ -19,4 +19,18 @@ class BaseModel {
 
         return $db;
     }
+
+    static function query(string $request, array $params = []) {
+        $db = static::connectToDB();
+
+        if (empty($params)) {
+            // No params --> call to query
+            return $db->query($request);
+        } else {
+            // Params --> prepared statement
+            $stmt = $db->prepare($request);
+            $stmt->execute($params);
+            return $stmt;
+        }
+    }
 }

@@ -15,6 +15,11 @@
     -->
 
     <input type="submit" value="Se connecter" class="cursor-pointer rounded bg-gray-800 text-white hover:bg-gray-600 w-1/2 p-2 mx-auto">
+
+    <p>
+        Vous n'avez pas encore de compte ?
+        <a href="<?= url('/register') ?>" class="hover:underline">Créez-en un !</a>
+    </p>
 </form>
 
 <?php include view('parts/footer'); ?>
