@@ -26,6 +26,7 @@
 
             <a href="<?= url('/') ?>" class="hover:underline">Accueil</a>
             <a href="<?= url('/contact') ?>" class="hover:underline">Contact</a>
+            <a href="<?= url('/products/list') ?>" class="hover:underline">Les produits</a>
 
 
             <?php if (is_connected()) : ?>

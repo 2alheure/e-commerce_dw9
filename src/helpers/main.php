@@ -169,3 +169,13 @@ function upload(array $file, string $directory): string {
     move_uploaded_file($file['tmp_name'], $directory . '/' . $new_name);
     return $new_name;
 }
+
+/**
+ * Checks that the connected user has a given role
+ * 
+ * @param int $role The role to check
+ * @return bool Whether the user has the given role or not
+ */
+function has_role(string $role): bool {
+    return user('role_id') === constant('App\\Role::' . $role);
+}

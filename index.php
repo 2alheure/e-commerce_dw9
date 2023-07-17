@@ -18,6 +18,7 @@ use App\FlashSession;
 use Controllers\AuthController;
 use Controllers\StaticController;
 use Controllers\ContactController;
+use Controllers\ProductController;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\AccessDeniedException;
 
@@ -79,13 +80,41 @@ try {
         case '/me':
             AuthController::displayProfile();
             break;
-            
+
         case '/me/update':
             AuthController::handleUpdateProfile();
             break;
 
         case '/me/delete':
             AuthController::delete();
+            break;
+
+        case '/products/list':
+            ProductController::list();
+            break;
+
+        case '/products/details':
+            ProductController::details();
+            break;
+
+        case '/products/update':
+            ProductController::displayUpdateForm();
+            break;
+
+        case '/products/create':
+            ProductController::displayCreateForm();
+            break;
+
+        case '/products/delete':
+            ProductController::delete();
+            break;
+
+        case '/products/update-handler':
+            ProductController::handleUpdateForm();
+            break;
+
+        case '/products/create-handler':
+            ProductController::handleCreateForm();
             break;
 
         case '/error/403':  // Pour tester la page 403

@@ -1,3 +1,6 @@
 logs/
 vendor/
 src/App/Config.php
+
+assets/img/products
+assets/img/users
