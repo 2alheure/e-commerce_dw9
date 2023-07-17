@@ -28,10 +28,13 @@
             <a href="<?= url('/contact') ?>" class="hover:underline">Contact</a>
             <a href="<?= url('/products/list') ?>" class="hover:underline">Les produits</a>
 
+            <a href="<?= url('/cart') ?>" class="hover:underline ml-auto">Mon panier</a>
 
             <?php if (is_connected()) : ?>
                 <a href="<?= url('/logout') ?>" class="hover:underline">Se déconnecter</a>
-                <a href="<?= url('/me') ?>" class="hover:underline flex gap-2 items-center ml-auto">
+                
+
+                <a href="<?= url('/me') ?>" class="hover:underline flex gap-2 items-center">
                     <img src="<?= user('image') ?? asset('img/user.png') ?>" alt="" class="bg-gray-500 w-10 h-10 object-cover rounded-full">
                     <?= user('prenom') ?> <?= mb_strtoupper(user('nom')) ?>
                 </a>

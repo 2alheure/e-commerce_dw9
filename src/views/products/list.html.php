@@ -19,6 +19,11 @@
                     <a href="<?= url('/products/delete?id=' . $p->id) ?>" class="bg-red-500 text-white p-2 rounded" onclick="return confirm('Êtes-vus sûr ?')">Supprimer</a>
                 <?php endif; ?>
             </p>
+
+            <form action="<?= url('/cart/add?id=' . $p->id) ?>" method="post">
+                <input type="number" name="qtte">
+                <button type="submit" class="bg-gray-800 text-white"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+            </form>
         </div>
     <?php endforeach; ?>
 </div>

@@ -21,6 +21,8 @@ use Controllers\ContactController;
 use Controllers\ProductController;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\AccessDeniedException;
+use Controllers\CartController;
+use Controllers\TestController;
 
 require_once __DIR__ . '/src/helpers/main.php';
 require_once __DIR__ . '/src/helpers/validation.php';
@@ -117,6 +119,26 @@ try {
             ProductController::handleCreateForm();
             break;
 
+        case '/cart/add':
+            CartController::add();
+            break;
+
+        case '/cart/remove':
+            CartController::remove();
+            break;
+
+        case '/cart/update':
+            CartController::update();
+            break;
+
+        case '/cart/empty':
+            CartController::empty();
+            break;
+
+        case '/cart':
+            CartController::displayCart();
+            break;
+
         case '/error/403':  // Pour tester la page 403
             error403();
 
@@ -125,6 +147,9 @@ try {
 
         case '/error/500':  // Pour tester la page 500
             error();
+
+        case '/test':  // Pour tester la page 500
+            TestController::test();
 
         default:
             error404();

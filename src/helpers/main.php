@@ -179,3 +179,13 @@ function upload(array $file, string $directory): string {
 function has_role(string $role): bool {
     return user('role_id') === constant('App\\Role::' . $role);
 }
+
+/**
+ * Returns well printed money output
+ * 
+ * @param float $price The price to output
+ * @return string 
+ */
+function money(float $price): string {
+    return number_format($price, 2, ',', ' ') . '&nbsp;&euro;';
+}
