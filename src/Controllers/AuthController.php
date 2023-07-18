@@ -4,6 +4,7 @@ namespace Controllers;
 
 use App\Exceptions\AccessDeniedException;
 use App\FlashSession;
+use App\Mail;
 use Models\UserModel;
 
 class AuthController {
@@ -83,6 +84,12 @@ class AuthController {
                 $_POST['email'],
                 password_hash($_POST['password'], PASSWORD_BCRYPT)
             );
+
+            (new Mail)
+                ->to($_POST['email'])
+                ->subject('Votre compte a été créé')
+                ->text('Merci de vous êtes inscrit sur notre site. A très vite !')
+                ->send();
         }
 
         add_flash('success', 'Votre compte a bien été créé. Vous allez recevoir un email de confirmation.');
