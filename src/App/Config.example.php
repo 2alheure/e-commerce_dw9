@@ -45,4 +45,9 @@ class Config {
         SMTP_PORT = '',
         SMTP_USER = '',
         SMTP_PSW = '';
+
+    /**
+     * Stripe key
+     */
+    const STRIPE_PRIVATE_KEY = '';
 }

@@ -38,8 +38,15 @@
     </tbody>
 </table>
 
-<p class="text-center text-red-500">
-<a href="<?= url('/cart/empty') ?>">Vider le panier</a>
+<p class="flex justify-center gap-2 mt-8">
+    <a href="<?= url('/cart/empty') ?>" class="bg-red-500 text-white rounded px-2 py-1">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+        Vider le panier
+    </a>
+    <a href="<?= url('/pay') ?>" class="bg-blue-500 text-white rounded px-2 py-1">
+        <i class="fa fa-credit-card" aria-hidden="true"></i>
+        Payer
+    </a>
 </p>
 
 <?php include view('parts/footer'); ?>

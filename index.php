@@ -22,6 +22,7 @@ use Controllers\ProductController;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\AccessDeniedException;
 use Controllers\CartController;
+use Controllers\PaymentController;
 use Controllers\TestController;
 
 require_once __DIR__ . '/src/helpers/main.php';
@@ -137,6 +138,18 @@ try {
 
         case '/cart':
             CartController::displayCart();
+            break;
+
+        case '/pay':
+            PaymentController::pay();
+            break;
+
+        case '/pay/success':
+            PaymentController::success();
+            break;
+
+        case '/pay/cancel':
+            PaymentController::cancel();
             break;
 
         case '/error/403':  // Pour tester la page 403

@@ -189,3 +189,11 @@ function has_role(string $role): bool {
 function money(float $price): string {
     return number_format($price, 2, ',', ' ') . '&nbsp;&euro;';
 }
+
+/**
+ * Generates a token
+ * @return string
+ */
+function token(): string {
+    return hash('sha256', random_bytes(32));
+}
