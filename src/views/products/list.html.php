@@ -21,8 +21,8 @@
             </p>
 
             <form action="<?= url('/cart/add?id=' . $p->id) ?>" method="post">
-                <input type="number" name="qtte">
-                <button type="submit" class="bg-gray-800 text-white"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                <input type="number" name="qtte" class="border-2 border-black">
+                <button type="submit" class="bg-gray-800 text-white rounded px-4 py-1"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
             </form>
         </div>
     <?php endforeach; ?>

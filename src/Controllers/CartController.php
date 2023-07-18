@@ -21,6 +21,7 @@ class CartController {
             add_flash('error', 'La quantité est incorrecte.');
         } else {
             Cart::add($produit, $_POST['qtte']);
+            add_flash('success', 'Produit ajouté au panier.');
         }
 
         redirect('/products/list');
@@ -35,6 +36,8 @@ class CartController {
         }
 
         Cart::remove($produit);
+        add_flash('success', 'Produit retiré du panier.');
+
 
         redirect('/cart');
     }
@@ -54,6 +57,7 @@ class CartController {
             add_flash('error', 'La quantité est incorrecte.');
         } else {
             Cart::updateQuantity($produit, $_POST['qtte']);
+            add_flash('success', 'Quantité modifiée.');
         }
 
         redirect('/cart');
