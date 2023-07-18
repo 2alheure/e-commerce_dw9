@@ -16,14 +16,15 @@ spl_autoload_register('fqcn_to_file_path');
 
 use App\FlashSession;
 use Controllers\AuthController;
+use Controllers\CartController;
+use Controllers\TestController;
 use Controllers\StaticController;
+use Controllers\CommandController;
 use Controllers\ContactController;
+use Controllers\PaymentController;
 use Controllers\ProductController;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\AccessDeniedException;
-use Controllers\CartController;
-use Controllers\PaymentController;
-use Controllers\TestController;
 
 require_once __DIR__ . '/src/helpers/main.php';
 require_once __DIR__ . '/src/helpers/validation.php';
@@ -140,8 +141,24 @@ try {
             CartController::displayCart();
             break;
 
-        case '/pay':
+        case '/order':
+            CommandController::displayOrderForm();
+            break;
+
+        case '/order-handler':
+            CommandController::handleOrderForm();
+            break;
+
+        case '/pay/cb':
             PaymentController::pay();
+            break;
+            
+        case '/pay/paypal':
+            PaymentController::paypal();
+            break;
+            
+        case '/pay/other':
+            PaymentController::payOther();
             break;
 
         case '/pay/success':

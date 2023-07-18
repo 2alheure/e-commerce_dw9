@@ -20,7 +20,7 @@ class UserModel extends BaseModel {
         return static::getByEmail($email);
     }
 
-    static function update($id, string $email, string $password, string $avatar, string $telephone, string $prenom, string $nom): object {
+    static function update($id, string $email, string $password, ?string $avatar, ?string $telephone, ?string $prenom, ?string $nom): object {
         static::query(
             'UPDATE utilisateur 
             SET email = :email,password = :password,image = :avatar,telephone = :telephone,prenom = :prenom,nom = :nom

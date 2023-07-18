@@ -50,4 +50,9 @@ class Config {
      * Stripe key
      */
     const STRIPE_PRIVATE_KEY = '';
+
+    /**
+     * Paypal pseudo
+     */
+    const USER_PAYPAL = '';
 }

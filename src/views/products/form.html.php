@@ -24,7 +24,9 @@
     <label for="description">Description</label>
     <textarea class="outline outline-gray-500 p-1 outline-1 rounded-sm mt-2 mb-8" name="description" id="description" placeholder="Description" rows="5"><?= $_POST['description'] ?? $produit->description ?? '' ?></textarea>
 
-    <select name="tva_id" id="tva_id">
+
+    <label for="tva_id">Sélectionnez la TVA applicable</label>
+    <select name="tva_id" id="tva_id" class="outline outline-gray-500 p-1 outline-1 rounded-sm mt-2 mb-8">
         <?php foreach ($tvas as $tva) : ?>
             <option value="<?= $tva->id ?>">
                 <?= $tva->nom ?> (<?= $tva->taux ?> %)
@@ -35,5 +37,4 @@
     <input type="submit" value="<?= $isUpdate ? 'Modifier' : 'Créer' ?> le produit" class="cursor-pointer rounded bg-gray-800 text-white hover:bg-gray-600 w-1/2 p-2 mx-auto">
 </form>
 
-<?php include view('parts/footer'); ?>
 <?php include view('parts/footer'); ?>

@@ -31,6 +31,10 @@ class Cart {
         unset($_SESSION['cart']);
     }
 
+    static function isEmpty(): bool {
+        return empty($_SESSION['cart']);
+    }
+
     /**
      * Returns all the products (and their quantity)
      */

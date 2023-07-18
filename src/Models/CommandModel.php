@@ -10,16 +10,18 @@ class CommandModel extends BaseModel {
             ->fetch();
     }
 
-    static function create(int $user_id, int $mode_livraison, int $mode_paiement): object {
+    static function create(int $user_id, int $mode_livraison, int $mode_paiement, string $adresse_livraison, string $adresse_facturation): object {
         static::query(
-            'INSERT INTO commande (utilisateur_id, etat_id, mode_paiement_id, mode_livraison_id, date, token)
-            VALUE (?, 1, ?, ?, ?, ?)',
+            'INSERT INTO commande (utilisateur_id, etat_id, mode_paiement_id, mode_livraison_id, date, token, adresse_livraison, adresse_facturation)
+            VALUE (?, 1, ?, ?, ?, ?, ?, ?)',
             [
                 $user_id,
                 $mode_paiement,
                 $mode_livraison,
                 date('Y-m-d'),
-                token()
+                token(),
+                $adresse_livraison,
+                $adresse_facturation
             ]
         );
 
@@ -29,6 +31,11 @@ class CommandModel extends BaseModel {
     static function getLast(): object {
         return static::query('SELECT * FROM commande ORDER BY id DESC')
             ->fetch();
+    }
+
+    static function getLastNumero(): string {
+        return static::query('SELECT numero FROM commande ORDER BY numero DESC WHERE numero IS NOT NULL')
+            ->fetch()->numero;
     }
 
     static function addProduct(int $commande_id, int $produit_id, int $qtte) {
@@ -46,8 +53,8 @@ class CommandModel extends BaseModel {
      * Updates a command to set it as it is payed
      */
     static function payed(string $token) {
-        $lastNumero = static::getLast()->numero;
-        
+        $lastNumero = static::getLastNumero();
+
         if (!empty($lastNumero)) {
             $lastNumero = substr($lastNumero, 6);
             $numero = date('y-m-') . ($lastNumero + 1);
@@ -63,5 +70,25 @@ class CommandModel extends BaseModel {
                 $token
             ]
         );
+    }
+
+    static function getAllMoyensPaiement(): array {
+        return static::query('SELECT * FROM mode_paiement')
+            ->fetchAll();
+    }
+
+    static function getAllMoyensLivraison(): array {
+        return static::query('SELECT * FROM mode_livraison')
+            ->fetchAll();
+    }
+
+    static function getOneMoyenPaiement($id): array {
+        return static::query('SELECT * FROM mode_paiement WHERE id = ?', [$id])
+            ->fetchAll();
+    }
+
+    static function getOneMoyenLivraison($id): array {
+        return static::query('SELECT * FROM mode_livraison WHERE id = ?', [$id])
+            ->fetchAll();
     }
 }
